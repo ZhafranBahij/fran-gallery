@@ -1,0 +1,145 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: #ddd;
+    color: rgb(41, 41, 41);
+}
+
+.container{
+    margin: 50px;
+    display: grid;
+    grid-template-areas: 
+    "topic" "head" "nav" "main" "footer"
+    ;
+    row-gap: 25px;
+}
+
+.container .brand{
+    display: none;
+}
+
+/* Header Picture */
+
+header{
+    grid-area: nav;
+    color: white;
+    display: grid;
+    grid-template-areas: 
+    "full full part01"
+    "full full part02"
+    ;
+    gap: 5px;
+    height: 500px;
+}
+
+header p{
+    font-size: 0.7em;
+}
+
+.full{
+    grid-area: full;
+    background-image: url("img/4.jpg");
+    background-size: cover;
+    background-position: center;
+    padding: 10px;
+}
+
+.part-01 {
+    grid-area: part01;
+    background-image: url("img/6.jpg");
+    background-size: cover;
+    background-position: center;
+    padding: 10px;
+}
+
+.part-02 {
+    grid-area: part02;
+    background-image: url("img/7.jpg");
+    background-size: cover;
+    background-position: center;
+    padding: 10px;
+}
+
+
+/* Navigasi */
+
+nav{
+    grid-area: head;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+}
+
+nav .name{
+    font-size: 1.5em;
+}
+
+.menu{
+    display: grid;
+    list-style: none;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+
+}
+
+.menu a{
+    display: block;
+    color: white;
+    text-decoration: none;
+    background-color: rgb(26, 25, 25);
+    padding: 10px;
+    text-align: center;
+}
+
+/* gallery */
+.gallery{
+    margin-top: 100px;
+    grid-area: main;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+}
+
+.gallery img{
+    display: block;
+    width: 100%;
+}
+
+.gallery h3{
+    text-align: center;
+    grid-column: 1 / -1 ;
+    font-size: 2rem;
+}
+
+/* BREAKPOINT */
+@media screen and (max-width: 1024px) {
+    nav{
+        grid-area: nav;
+    }
+    header{
+        grid-area: head;
+    }
+}
+
+@media screen and (max-width: 777px) {
+    .container .brand{
+        display: block;
+        grid-area: topic;
+        text-align: center;
+    }
+    header{
+        grid-template-areas: 
+        "full" "part01" "part02"
+        ;
+    }
+    .name{
+        display: none;
+    }
+    nav{
+        grid-template-columns: 1fr;
+    }
+}
+
